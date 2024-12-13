@@ -40,17 +40,20 @@ public class KineticHostingButton extends Screen {
 
                 button.visible = false;
 
-                int newX = 0;
+                int newX = KineticHostingAdditionClient.getLogoX();
+                int newY = KineticHostingAdditionClient.getLogoY();
                 int imageWidth = 120;
-                int imageHeight = (int) (120 / 4.13);
+                int imageHeight = (int) (120 / KineticHostingAdditionClient.getLogoScale());
 
-                this.addDrawableChild(new TexturedButtonWidget(
-                        newX, 0, imageWidth, imageHeight,
-                        0, 0, imageHeight,
-                        new Identifier("kinetic-hosting-addition", "textures/gui/image-logo.png"),
-                        imageWidth, imageHeight,
-                        (btn) -> Util.getOperatingSystem().open(KineticHostingAdditionClient.getAffiliateLink())
-                ));
+                if (KineticHostingAdditionClient.shouldDisplayLogo()) {
+                    this.addDrawableChild(new TexturedButtonWidget(
+                            newX, newY, imageWidth, imageHeight,
+                            0, 0, imageHeight,
+                            new Identifier("kinetic-hosting-addition", "textures/gui/image-logo.png"),
+                            imageWidth, imageHeight,
+                            (btn) -> Util.getOperatingSystem().open(KineticHostingAdditionClient.getAffiliateLink())
+                    ));
+                }
 
                 this.addDrawableChild(ButtonWidget.builder(
                         Text.translatable("kinetic-hosting-addition.kineticButton"),
