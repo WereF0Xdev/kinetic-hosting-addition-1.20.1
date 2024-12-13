@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "kinetic-hosting-addition",
+	"version": "${version}",
+	"name": "Kinetic Hosting Addition",
+	"description": "Adds a button that redirects to your Kinetic Hosting affiliate page.",
+	"authors": [
+		"WereF0X"
+	],
+	"contact": {
+		"homepage": "https://discord.gg/JjRmg8e4tR",
+		"sources": "https://discord.gg/JjRmg8e4tR"
+	},
+	"license": "All Rights Reserved",
+	"icon": "assets/kinetic-hosting-addition/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"fox.mods.KineticHostingAddition"
+		],
+		"client": [
+			"fox.mods.KineticHostingAdditionClient"
+		]
+	},
+	"mixins": [
+		"kinetic-hosting-addition.mixins.json",
+		{
+			"config": "kinetic-hosting-addition.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.3",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
